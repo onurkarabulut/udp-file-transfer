@@ -1,7 +1,8 @@
 # udp-file-transfer
 * Windows ve Linux işletim sistemleri içi uyumludur.
+* Bağlantı UDP üzerinden gerçekleşmektedir.
 ## Sunucu
-* Sunucu bağlantıyı UDP üzerinden sağlayarak, 42. portu dinlemektedir.
+* Sunucu 42. portu dinlemektedir.
 ## İstemci
 * **istemci.py** çalıştırıldığında IP adresi olarak **sunucu.py**'nin IP adresi girilmelidir.
 * Sunucuya bağlantı sağlandığında sunucu üzerindeki klasörde bulunan dosya isimlerini istemciye gönderir.
