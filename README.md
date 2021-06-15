@@ -1,4 +1,5 @@
 # udp-file-transfer
+* Windows ve Linux işletim sistemleri içi uyumludur.
 ## Sunucu
 * Sunucu bağlantıyı UDP üzerinden sağlayarak, 42. portu dinlemektedir.
 ## İstemci
