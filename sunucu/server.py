@@ -12,15 +12,15 @@ size = 32768
 
 
 def files():
-    a = os.listdir(os.getcwd()+"/sunucu_dosyalari")
-    b = "---SERVER DOSYALARI---"
+    a = os.listdir(os.getcwd()+"/server_files")
+    b = "---SERVER FILES---"
     for i in range(len(a)):
         b += "\n {0} - {1}".format(i+1, str(a[i]))
     return b
 
 
 def put_data(order):
-    f = open("sunucu_dosyalari/" + order[4:], 'wb')
+    f = open("server_files/" + order[4:], 'wb')
     file_size_data, way = sct.recvfrom(size)
     file_size = int(file_size_data.decode("utf-8"))
     print("{0} Dosyası {1} IP'li İstemciden Alınıyor".format(order[4:], way[0]))
@@ -38,16 +38,16 @@ def put_data(order):
 
 
 def get_file(order, way):
-    file_list = os.listdir(os.getcwd()+"/sunucu_dosyalari")
+    file_list = os.listdir(os.getcwd()+"/server_files")
     file_control = 0
     for i in file_list:
         if order[4:] == i:
             file_msg = "True".encode("utf-8")
             sct.sendto(file_msg, way)
-            file_size = os.stat("sunucu_dosyalari/" + order[4:])[6]
+            file_size = os.stat("server_files/" + order[4:])[6]
             file_size_send = str(file_size).encode("utf-8")
             sct.sendto(file_size_send, way)
-            f = open("sunucu_dosyalari/"+order[4:], "rb")
+            f = open("server_files/"+order[4:], "rb")
             size_control = 1
             file_data = f.read(size)
             print("{0} Dosyası {1} IP'li İstemciye Yollanıyor".format(order[4:], way[0]))
